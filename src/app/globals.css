@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 198 70% 94%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 190 60% 94%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 200 45% 94%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 199 89% 48%;
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-color: hsl(var(--background));
+    background-image:
+      linear-gradient(to bottom, hsl(198 70% 96%), hsl(198 70% 92%)),
+      radial-gradient(circle at top left, hsl(190 95% 82% / 0.55), transparent 34%),
+      radial-gradient(circle at top right, hsl(145 70% 84% / 0.45), transparent 30%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    @apply bg-primary text-primary-foreground;
+  }
+}
+
+@layer components {
+  .surface-hover {
+    @apply transition duration-200 ease-out hover:-translate-y-0.5 hover:border-sky-200 hover:shadow-md;
+  }
+
+  .field-hover {
+    @apply transition duration-200 hover:border-sky-300 hover:bg-white focus-visible:border-sky-400;
+  }
+}
